@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\TournamentManagement.IServices\TournamentManagement.IServices.csproj" />
+    <ProjectReference Include="..\TournamentManagement.IRepository\TournamentManagement.IRepository.csproj" />
+    <ProjectReference Include="..\TournamentManagement.Entities\TournamentManagement.Entities.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

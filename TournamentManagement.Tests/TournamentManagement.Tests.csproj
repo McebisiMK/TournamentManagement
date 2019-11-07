@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.9.0" />
+    <PackageReference Include="NSubstitute" Version="4.2.1" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TournamentManagement.Entities\TournamentManagement.Entities.csproj" />
+    <ProjectReference Include="..\TournamentManagement.IRepository\TournamentManagement.IRepository.csproj" />
+    <ProjectReference Include="..\TournamentManagement.Repositories\TournamentManagement.Repositories.csproj" />
+    <ProjectReference Include="..\TournamentManagement.Services\TournamentManagement.Services.csproj" />
+    <ProjectReference Include="..\TournamentManagement.IServices\TournamentManagement.IServices.csproj" />
+  </ItemGroup>
+
+</Project>
