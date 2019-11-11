@@ -40,7 +40,8 @@ namespace TournamentManagement.API
               {
                   builder.WithOrigins()
                         .AllowAnyHeader()
-                        .AllowAnyMethod();
+                        .AllowAnyMethod()
+                        .AllowCredentials();
               });
             });
 
