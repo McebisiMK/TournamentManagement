@@ -1,0 +1,27 @@
+<div class="jumbotron-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-12">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <h3 class="fa fa-trophy" style="color: brown;"></h3>&nbsp;Tournament Name
+                </div>
+                <tabset>
+                    <tab class="nav nav-tabs text-white bg-transparent">
+                        <ng-template tabHeading><i class="fa fa-futbol-o"></i>&nbsp;Matches
+                            &nbsp;<span class="badge badge-success">30</span></ng-template>
+                        <app-matches></app-matches>
+                    </tab>
+                    <tab>
+                        <ng-template tabHeading><i class="fa fa-table"></i>&nbsp;Table</ng-template>
+                        <app-table></app-table>
+                    </tab>
+                    <tab>
+                        <ng-template tabHeading><i class="fa fa-group"></i> Players
+                            &nbsp;<span class="badge badge-success">130</span></ng-template>
+                        <app-players></app-players>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+</div>
