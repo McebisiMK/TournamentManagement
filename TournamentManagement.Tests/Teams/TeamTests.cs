@@ -176,7 +176,7 @@ namespace TournamentManagement.Tests.Teams
             var updatedTeam = new Team("Jack", "will", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(id).Returns(false);
+            teamRepository.Exist(team => team.Id.Equals(id)).Returns(false);
 
             //-----------------------Act---------------------
             await teamService.Update(id, updatedTeam);
@@ -193,7 +193,7 @@ namespace TournamentManagement.Tests.Teams
             var updatedTeam = new Team("Jack", "will", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(id).Returns(true);
+            teamRepository.Exist(team => team.Id.Equals(id)).Returns(true);
 
             //-----------------------Act---------------------
             await teamService.Update(id, updatedTeam);
@@ -209,7 +209,7 @@ namespace TournamentManagement.Tests.Teams
             var id = 1;
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(id).Returns(false);
+            teamRepository.Exist(team => team.Id.Equals(id)).Returns(false);
 
             //-----------------------Act---------------------
             await teamService.Delete(id);
@@ -225,7 +225,7 @@ namespace TournamentManagement.Tests.Teams
             var id = 1;
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(id).Returns(true);
+            teamRepository.Exist(team => team.Id.Equals(id)).Returns(true);
 
             //-----------------------Act---------------------
             await teamService.Delete(id);

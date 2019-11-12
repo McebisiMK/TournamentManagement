@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TournamentManagement.Entities.Models;
@@ -47,9 +49,9 @@ namespace TournamentManagement.Repositories_Registration
             await _genericRepository.SaveAsync();
         }
 
-        public bool Exist(int id)
+        public bool Exist(Expression<Func<Registration, bool>> expression)
         {
-            return _genericRepository.Exist(registration => registration.Id.Equals(id));
+            return _genericRepository.Exist(expression);
         }
     }
 }

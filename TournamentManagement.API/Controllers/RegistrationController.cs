@@ -10,6 +10,7 @@ namespace TournamentManagement.API.Controllers
     public class RegistrationController : Controller
     {
         private readonly IRegistrationService _registrationService;
+
         public RegistrationController(IRegistrationService registrationService)
         {
             _registrationService = registrationService;

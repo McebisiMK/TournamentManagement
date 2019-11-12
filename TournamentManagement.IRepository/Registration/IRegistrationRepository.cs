@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TournamentManagement.Entities.Models;
 
@@ -11,6 +13,6 @@ namespace TournamentManagement.IRepository_Registration
         Task Register(Registration registration);
         Task Update(Registration oldRegistration, Registration newRegistration);
         Task Delete(Registration registration);
-        bool Exist(int id);
+        bool Exist(Expression<Func<Registration, bool>> expression);
     }
 }

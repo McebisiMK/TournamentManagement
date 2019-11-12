@@ -35,10 +35,12 @@ namespace TournamentManagement.Services_Registration
         {
             if (IsValid(registration))
             {
-                var existingTournament = _tournamentRepository.Exist(registration.TournamentId);
-                var existingTeam = _teamRepository.Exist(registration.TeamId);
+                var existingTournament = _tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId));
+                var existingTeam = _teamRepository.Exist(team => team.Id.Equals(registration.TeamId));
+                var existingRegistration = _registrationRepository.Exist(reg => reg.TournamentId.Equals(registration.TournamentId) &&
+                                                                                         reg.TeamId.Equals(registration.TeamId));
 
-                if (existingTournament && existingTeam)
+                if (existingTournament && existingTeam && !existingRegistration)
                 {
                     await _registrationRepository.Register(registration);
                 }
@@ -49,7 +51,7 @@ namespace TournamentManagement.Services_Registration
         {
             if (IsValid(newRegistration))
             {
-                var existingRegistration = _registrationRepository.Exist(id);
+                var existingRegistration = _registrationRepository.Exist(registration => registration.Id.Equals(id));
 
                 if (existingRegistration)
                 {
@@ -61,7 +63,7 @@ namespace TournamentManagement.Services_Registration
 
         public async Task Delete(int id)
         {
-            var existingRegistration = _registrationRepository.Exist(id);
+            var existingRegistration = _registrationRepository.Exist(registration => registration.Id.Equals(id));
 
             if (existingRegistration)
             {

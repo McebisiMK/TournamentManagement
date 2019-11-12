@@ -13,7 +13,7 @@ namespace TournamentManagement.Tests_Registration
     public class RegistrationTests
     {
         [Test]
-        public async Task Register_Given_Registration_With_Both_Tournament_And_Team_That_Does_Not_Exist_Should_Not_Register_Team()
+        public async Task Register_Given_New_Registration_With_Both_Tournament_And_Team_That_Does_Not_Exist_Should_Not_Register_Team()
         {
             //----------------------Arrange--------------------------------
             var registration = new Registration(3, 3, 6000);
@@ -21,8 +21,9 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(registration.TournamentId).Returns(false);
-            teamRepository.Exist(registration.TeamId).Returns(false);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(false);
+            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(false);
+
 
             //----------------------Act------------------------------------
             await registrationService.Register(registration);
@@ -33,7 +34,7 @@ namespace TournamentManagement.Tests_Registration
         }
 
         [Test]
-        public async Task Register_Given_Registration_With_Tournament_That_Does_Not_Exist_Should_Not_Register_Team()
+        public async Task Register_Given_New_Registration_With_Tournament_That_Does_Not_Exist_Should_Not_Register_Team()
         {
             //----------------------Arrange----------------------------
             var registration = new Registration(6, 1, 500);
@@ -41,8 +42,8 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(registration.TournamentId).Returns(false);
-            teamRepository.Exist(registration.TeamId).Returns(true);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(false);
+            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(true);
 
             //----------------------Act--------------------------------
             await registrationService.Register(registration);
@@ -53,7 +54,7 @@ namespace TournamentManagement.Tests_Registration
         }
 
         [Test]
-        public async Task Register_Given_Registration_With_Team_That_Does_Not_Exist_Should_Not_Register_Team()
+        public async Task Register_Given_New_Registration_With_Team_That_Does_Not_Exist_Should_Not_Register_Team()
         {
             //----------------------Arrange--------------------------------
             var registration = new Registration(2, 3, 6000);
@@ -61,8 +62,8 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(registration.TournamentId).Returns(true);
-            teamRepository.Exist(registration.TeamId).Returns(false);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(true);
+            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(false);
 
             //----------------------Act------------------------------------
             await registrationService.Register(registration);
@@ -73,7 +74,7 @@ namespace TournamentManagement.Tests_Registration
         }
 
         [Test]
-        public async Task Register_Given_Valid_Registration_With_Both_Existing_Tournament_And_Team_Should_Register_Team()
+        public async Task Register_Given_Valid_New_Registration_With_Both_Existing_Tournament_And_Team_Should_Register_Team()
         {
             //----------------------Arrange----------------------------
             var registration = new Registration(1, 1, 5000);
@@ -81,8 +82,8 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(registration.TournamentId).Returns(true);
-            teamRepository.Exist(registration.TeamId).Returns(true);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(false);
+            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Register(registration);
@@ -102,7 +103,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(id).Returns(false);
+            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Update(id, registration);
@@ -122,7 +123,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(id).Returns(true);
+            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(true);
 
             //----------------------Act--------------------------------
             await registrationService.Update(id, registration);
@@ -141,7 +142,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(id).Returns(false);
+            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Delete(id);
@@ -160,7 +161,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(id).Returns(true);
+            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(true);
 
             //----------------------Act--------------------------------
             await registrationService.Delete(id);

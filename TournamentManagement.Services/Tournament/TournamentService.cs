@@ -41,15 +41,15 @@ namespace TournamentManagement.Services_Tournament
             return await _tournamentRepository.GetByDate(startDate);
         }
 
-        public async Task Save(Tournament tournament)
+        public async Task Save(Tournament newTournament)
         {
-            if (IsValid(tournament))
+            if (IsValid(newTournament))
             {
-                var existingTournament = _tournamentRepository.Exist(tournament.Id);
+                var existingTournament = _tournamentRepository.Exist(tournament => tournament.Name.Equals(newTournament.Name));
 
                 if (!existingTournament)
                 {
-                    await _tournamentRepository.Save(tournament);
+                    await _tournamentRepository.Save(newTournament);
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace TournamentManagement.Services_Tournament
         {
             if (IsValid(newTournament))
             {
-                var existingTournament = _tournamentRepository.Exist(id);
+                var existingTournament = _tournamentRepository.Exist(tournament => tournament.Id.Equals(id));
 
                 if (existingTournament)
                 {
@@ -70,7 +70,7 @@ namespace TournamentManagement.Services_Tournament
 
         public async Task Delete(int id)
         {
-            var existingTournament = _tournamentRepository.Exist(id);
+            var existingTournament = _tournamentRepository.Exist(tournament => tournament.Id.Equals(id));
 
             if (existingTournament)
             {

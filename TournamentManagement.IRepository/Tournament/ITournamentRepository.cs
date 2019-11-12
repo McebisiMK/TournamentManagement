@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TournamentManagement.Entities.Models;
 
@@ -15,6 +16,6 @@ namespace TournamentManagement.IRepository_Tournament
         Task Save(Tournament tournament);
         Task Update(Tournament oldTournament, Tournament newTournament);
         Task Delete(Tournament tournament);
-        bool Exist(int id);
+        bool Exist(Expression<Func<Tournament, bool>> expression);
     }
 }

@@ -180,7 +180,7 @@ namespace TournamentManagement.Tests.Tournaments
             var updatedTournament = new Tournament("XXXX", DateTime.Today.AddDays(+10), "YYYY");
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(id).Returns(false);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(false);
 
             //-----------------------Act---------------------
             await tournamentService.Update(id, updatedTournament);
@@ -197,7 +197,7 @@ namespace TournamentManagement.Tests.Tournaments
             var updatedTournament = new Tournament("XXXX", DateTime.Today.AddDays(+10), "YYYY");
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(id).Returns(true);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(true);
 
             //-----------------------Act---------------------
             await tournamentService.Update(id, updatedTournament);
@@ -213,13 +213,13 @@ namespace TournamentManagement.Tests.Tournaments
             var id = 01;
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(id).Returns(true);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(false);
 
             //-----------------------Act---------------------
             await tournamentService.Delete(id);
 
             //-----------------------Assert------------------
-            await tournamentRepository.Received(1).Delete(Arg.Any<Tournament>());
+            await tournamentRepository.DidNotReceive().Delete(Arg.Any<Tournament>());
         }
 
         [Test]
@@ -229,7 +229,7 @@ namespace TournamentManagement.Tests.Tournaments
             var id = 01;
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(id).Returns(true);
+            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(true);
 
             //-----------------------Act---------------------
             await tournamentService.Delete(id);

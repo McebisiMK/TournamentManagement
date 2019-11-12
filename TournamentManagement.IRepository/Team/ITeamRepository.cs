@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TournamentManagement.Entities.Models;
 
@@ -14,6 +16,6 @@ namespace TournamentManagement.IRepository_Team
         Task Save(Team team);
         Task Update(Team oldTeam, Team newTeam);
         Task Delete(Team team);
-        bool Exist(int id);
+        bool Exist(Expression<Func<Team, bool>> expression);
     }
 }

@@ -40,15 +40,15 @@ namespace TournamentManagement.Services_Team
             return await _teamRepository.GetByCoach(coach);
         }
 
-        public async Task Save(Team team)
+        public async Task Save(Team newTeam)
         {
-            if (IsValid(team))
+            if (IsValid(newTeam))
             {
-                var existingTeam = _teamRepository.Exist(team.Id);
+                var existingTeam = _teamRepository.Exist(team => team.Name.Equals(newTeam.Name));
 
                 if (!existingTeam)
                 {
-                    await _teamRepository.Save(team);
+                    await _teamRepository.Save(newTeam);
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace TournamentManagement.Services_Team
         {
             if (IsValid(newTeam))
             {
-                var existingTeam = _teamRepository.Exist(id);
+                var existingTeam = _teamRepository.Exist(team => team.Id.Equals(id));
 
                 if (existingTeam)
                 {
@@ -69,7 +69,7 @@ namespace TournamentManagement.Services_Team
 
         public async Task Delete(int id)
         {
-            var existingTeam = _teamRepository.Exist(id);
+            var existingTeam = _teamRepository.Exist(team => team.Id.Equals(id));
 
             if (existingTeam)
             {

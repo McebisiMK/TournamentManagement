@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TournamentManagement.Entities.Models;
 using TournamentManagement.IRepository;
@@ -70,9 +72,9 @@ namespace TournamentManagement.Repositories_Team
             await _genericRepository.SaveAsync();
         }
 
-        public bool Exist(int id)
+        public bool Exist(Expression<Func<Team, bool>> expression)
         {
-            return _genericRepository.Exist(team => team.Id.Equals(id));
+            return _genericRepository.Exist(expression);
         }
     }
 }
