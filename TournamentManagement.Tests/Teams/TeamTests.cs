@@ -67,6 +67,7 @@ namespace TournamentManagement.Tests.Teams
             var team = new Team("Jack", "Jill", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
 
             //-----------------------Act----------------------
@@ -88,6 +89,7 @@ namespace TournamentManagement.Tests.Teams
             };
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.GetAll().Returns(teams);
 
             //-----------------------Act---------------------
@@ -105,6 +107,7 @@ namespace TournamentManagement.Tests.Teams
             var team = new Team("Jack", "Jill", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.GetById(id).Returns(team);
 
             //-----------------------Act----------------------
@@ -122,6 +125,7 @@ namespace TournamentManagement.Tests.Teams
             var team = new Team("Jack", "Jill", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.GetByName(name).Returns(team);
 
             //-----------------------Act----------------------
@@ -142,6 +146,7 @@ namespace TournamentManagement.Tests.Teams
             };
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.GetByCoach(coach).Returns(team);
 
             //-----------------------Act----------------------
@@ -162,6 +167,7 @@ namespace TournamentManagement.Tests.Teams
             };
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.GetByCaptain(captain).Returns(team);
 
             //-----------------------Act---------------------
@@ -179,6 +185,7 @@ namespace TournamentManagement.Tests.Teams
             var updatedTeam = new Team("Jack", "will", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
 
             //-----------------------Act---------------------
@@ -196,6 +203,7 @@ namespace TournamentManagement.Tests.Teams
             var updatedTeam = new Team("Jack", "will", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
 
             //-----------------------Act---------------------
@@ -212,6 +220,7 @@ namespace TournamentManagement.Tests.Teams
             var id = 1;
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
 
             //-----------------------Act---------------------
@@ -228,6 +237,7 @@ namespace TournamentManagement.Tests.Teams
             var id = 1;
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
 
             //-----------------------Act---------------------

@@ -23,6 +23,7 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
@@ -45,6 +46,7 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
@@ -66,6 +68,7 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(true);
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
@@ -87,6 +90,7 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(true);
             teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
@@ -109,6 +113,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act--------------------------------
@@ -129,6 +134,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(true);
 
             //----------------------Act--------------------------------
@@ -148,6 +154,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act--------------------------------
@@ -167,6 +174,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
+
             registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(true);
 
             //----------------------Act--------------------------------
