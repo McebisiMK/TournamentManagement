@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NSubstitute;
@@ -65,6 +67,7 @@ namespace TournamentManagement.Tests.Teams
             var team = new Team("Jack", "Jill", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
 
             //-----------------------Act----------------------
             await teamService.Save(team);
@@ -176,7 +179,7 @@ namespace TournamentManagement.Tests.Teams
             var updatedTeam = new Team("Jack", "will", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(team => team.Id.Equals(id)).Returns(false);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
 
             //-----------------------Act---------------------
             await teamService.Update(id, updatedTeam);
@@ -193,7 +196,7 @@ namespace TournamentManagement.Tests.Teams
             var updatedTeam = new Team("Jack", "will", "JJ");
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(team => team.Id.Equals(id)).Returns(true);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
 
             //-----------------------Act---------------------
             await teamService.Update(id, updatedTeam);
@@ -209,7 +212,7 @@ namespace TournamentManagement.Tests.Teams
             var id = 1;
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(team => team.Id.Equals(id)).Returns(false);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
 
             //-----------------------Act---------------------
             await teamService.Delete(id);
@@ -225,7 +228,7 @@ namespace TournamentManagement.Tests.Teams
             var id = 1;
             var teamRepository = Substitute.For<ITeamRepository>();
             var teamService = CreateTeamService(teamRepository);
-            teamRepository.Exist(team => team.Id.Equals(id)).Returns(true);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
 
             //-----------------------Act---------------------
             await teamService.Delete(id);

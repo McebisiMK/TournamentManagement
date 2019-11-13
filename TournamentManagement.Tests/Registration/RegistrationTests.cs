@@ -1,3 +1,5 @@
+using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using NSubstitute;
 using NUnit.Framework;
@@ -21,8 +23,9 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(false);
-            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(false);
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
 
             //----------------------Act------------------------------------
@@ -42,8 +45,9 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(false);
-            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(true);
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Register(registration);
@@ -62,8 +66,9 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(true);
-            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(false);
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(true);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(false);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act------------------------------------
             await registrationService.Register(registration);
@@ -82,8 +87,9 @@ namespace TournamentManagement.Tests_Registration
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationRepository = Substitute.For<IRegistrationRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId)).Returns(false);
-            teamRepository.Exist(team => team.Id.Equals(registration.TeamId)).Returns(false);
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(true);
+            teamRepository.Exist(Arg.Any<Expression<Func<Team, bool>>>()).Returns(true);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Register(registration);
@@ -103,7 +109,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(false);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Update(id, registration);
@@ -123,7 +129,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(true);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(true);
 
             //----------------------Act--------------------------------
             await registrationService.Update(id, registration);
@@ -142,7 +148,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(false);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(false);
 
             //----------------------Act--------------------------------
             await registrationService.Delete(id);
@@ -161,7 +167,7 @@ namespace TournamentManagement.Tests_Registration
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var teamRepository = Substitute.For<ITeamRepository>();
             var registrationService = CreateRegistrationService(tournamentRepository, teamRepository, registrationRepository);
-            registrationRepository.Exist(reg => reg.Id.Equals(id)).Returns(true);
+            registrationRepository.Exist(Arg.Any<Expression<Func<Registration, bool>>>()).Returns(true);
 
             //----------------------Act--------------------------------
             await registrationService.Delete(id);
