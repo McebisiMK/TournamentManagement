@@ -12,6 +12,9 @@ import { TeamsComponent } from './teams/teams.component';
 import { TableComponent } from './teams/table/table.component';
 import { MatchesComponent } from './teams/matches/matches.component';
 import { PlayersComponent } from './teams/players/players.component';
+import { TournamentService } from './shared/services/tournament.service';
+import { TeamService } from './shared/services/team.service';
+import { RegistrationService } from './shared/services/registration.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,7 +40,7 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     NgbModule
   ],
-  providers: [],
+  providers: [TournamentService, TeamService, RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
