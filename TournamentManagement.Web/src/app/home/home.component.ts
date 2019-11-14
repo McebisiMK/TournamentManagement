@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-stats',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: []
 })
 export class HomeComponent implements OnInit {
 
