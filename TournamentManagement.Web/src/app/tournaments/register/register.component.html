@@ -1,6 +1,6 @@
 <form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
     <div class="form-group">
-        <input name="Name" #Name="ngModel" [(ngModel)]="service.Name" class="form-control"
+        <input name="Name" #Name="ngModel" [(ngModel)]="service.Name" class="form-control is-invalid"
             placeholder="tournament name">
     </div>
     <div class="form-row">
