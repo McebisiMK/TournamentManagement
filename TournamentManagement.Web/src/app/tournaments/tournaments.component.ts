@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { TournamentService } from '../shared/services/tournament.service';
 
 @Component({
   selector: 'app-tournaments',
   templateUrl: './tournaments.component.html',
-  styleUrls: ['./tournaments.component.css']
+  styles: []
 })
 export class TournamentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: TournamentService) { }
+
 
   ngOnInit() {
   }

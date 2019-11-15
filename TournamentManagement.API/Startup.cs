@@ -33,17 +33,7 @@ namespace TournamentManagement.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-              builder =>
-              {
-                  builder.WithOrigins()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
-              });
-            });
+            services.AddCors();
 
             var connectionString = Configuration.GetConnectionString("TournamentManagementDatabase");
             services.AddDbContext<TournamentManagementDBContext>(options => options.UseSqlServer(connectionString));
@@ -69,7 +59,10 @@ namespace TournamentManagement.API
 
             app.UseRouting();
 
-            app.UseCors("CorsPolicy");
+            app.UseCors(options =>
+                                    options.AllowAnyOrigin()
+                                           .AllowAnyMethod()
+                                           .AllowAnyHeader());
 
             app.UseAuthorization();
 
