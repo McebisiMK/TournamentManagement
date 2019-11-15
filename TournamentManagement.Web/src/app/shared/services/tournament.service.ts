@@ -7,11 +7,11 @@ import { HttpClient } from "@angular/common/http";
 })
 export class TournamentService {
   tournament: Tournament;
-  private readonly rootUrl = 'http://localhost:61418/api';
+  private readonly rootUrl = 'http://localhost:61418/api/tournament';
 
   constructor(private http: HttpClient) { }
 
   save(tournament: Tournament) {
-    return this.http.post(this.rootUrl + '/tournament', tournament)
+    return this.http.post(this.rootUrl + '/save', tournament)
   }
 }
