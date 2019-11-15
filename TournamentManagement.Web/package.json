@@ -22,11 +22,13 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
+    "@schematics/angular": "^7.0.7",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^5.2.0",
+    "ngx-toastr": "^11.2.1",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

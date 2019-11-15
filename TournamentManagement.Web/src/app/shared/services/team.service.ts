@@ -1,11 +1,25 @@
-import { Injectable } from '@angular/core';
-import { Team } from '../models/team.model';
+import { Injectable } from "@angular/core";
+import { Team } from "../models/team.model";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class TeamService {
-  teamData: Team;
+  team: Team;
+  teams: Team[];
+  private readonly rootUrl = "http://localhost:61418/api/team";
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  save(team: Team) {
+    return this.http.post(this.rootUrl + "save", team);
+  }
+
+  allTeams() {
+    this.http
+      .get(this.rootUrl + "/getall")
+      .toPromise()
+      .then(response => (this.teams = response as Team[]));
+  }
 }
