@@ -4,7 +4,7 @@ import { TeamService } from '../shared/services/team.service';
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
-  styleUrls: []
+  styles: []
 })
 export class TeamsComponent implements OnInit {
 

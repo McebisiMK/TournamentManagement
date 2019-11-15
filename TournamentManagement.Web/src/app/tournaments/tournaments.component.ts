@@ -4,12 +4,12 @@ import { TournamentService } from '../shared/services/tournament.service';
 @Component({
   selector: 'app-tournaments',
   templateUrl: './tournaments.component.html',
-  styleUrls: []
+  styles: []
 })
 export class TournamentsComponent implements OnInit {
 
   constructor(private service: TournamentService) { }
-  
+
 
   ngOnInit() {
   }

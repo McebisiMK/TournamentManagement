@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
-  styleUrls: []
+  styles: []
 })
 export class MatchesComponent implements OnInit {
 
