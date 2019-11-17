@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class TournamentService {
   tournament: Tournament;
-  tournaments: Tournament[];
+  tournaments: Array<Tournament>;
   private readonly rootUrl = "http://localhost:58888/api/tournament";
 
   constructor(private http: HttpClient) {}
@@ -18,8 +18,8 @@ export class TournamentService {
 
   allTournaments() {
     this.http
-      .get<Tournament[]>(this.rootUrl + "/getall")
+      .get<Array<Tournament>>(this.rootUrl + "/getall")
       .toPromise()
-      .then(response => (this.tournaments = response as Tournament[]));
+      .then(response => (this.tournaments = response as Array<Tournament>));
   }
 }
