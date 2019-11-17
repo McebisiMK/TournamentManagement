@@ -8,17 +8,17 @@ import { HttpClient } from "@angular/common/http";
 export class TeamService {
   team: Team;
   teams: Team[];
-  private readonly rootUrl = "http://localhost:61418/api/team";
+  private readonly rootUrl = "http://localhost:58888/api/team";
 
   constructor(private http: HttpClient) {}
 
   save(team: Team) {
-    return this.http.post(this.rootUrl + "save", team);
+    return this.http.post(this.rootUrl + "/save", team);
   }
 
   allTeams() {
     this.http
-      .get(this.rootUrl + "/getall")
+      .get<Team[]>(this.rootUrl + "/getall")
       .toPromise()
       .then(response => (this.teams = response as Team[]));
   }

@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 export class TournamentService {
   tournament: Tournament;
   tournaments: Tournament[];
-  private readonly rootUrl = "http://localhost:61418/api/tournament";
+  private readonly rootUrl = "http://localhost:58888/api/tournament";
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class TournamentService {
 
   allTournaments() {
     this.http
-      .get(this.rootUrl + "/getall")
+      .get<Tournament[]>(this.rootUrl + "/getall")
       .toPromise()
       .then(response => (this.tournaments = response as Tournament[]));
   }
