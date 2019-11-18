@@ -7,6 +7,7 @@ import { TournamentService } from "src/app/shared/services/tournament.service";
   styles: []
 })
 export class TournamentsListComponent implements OnInit {
+
   constructor(private service: TournamentService) {}
 
   ngOnInit() {
