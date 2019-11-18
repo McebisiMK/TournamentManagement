@@ -70,10 +70,10 @@ namespace TournamentManagement.API
 
             app.UseRouting();
 
-            app.UseCors(options =>
-                                    options.AllowAnyOrigin()
-                                           .AllowAnyMethod()
-                                           .AllowAnyHeader());
+            app.UseCors(options => options
+                                    .AllowAnyOrigin()
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader());
 
             app.UseAuthorization();
 
