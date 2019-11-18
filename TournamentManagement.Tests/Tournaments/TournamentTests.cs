@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NSubstitute;
@@ -68,6 +69,8 @@ namespace TournamentManagement.Tests.Tournaments
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
 
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
+
             //----------------------Act--------------------------
             await tournamentService.Save(tournament);
 
@@ -88,6 +91,7 @@ namespace TournamentManagement.Tests.Tournaments
             };
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
+
             tournamentRepository.GetAll().Returns(tournaments);
 
             //----------------------Act--------------------------
@@ -106,6 +110,7 @@ namespace TournamentManagement.Tests.Tournaments
             var tournament = new Tournament("XXXX", DateTime.Today.AddDays(+10), "YYYY");
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
+
             tournamentRepository.GetById(id).Returns(tournament);
 
             //-----------------------Act----------------------
@@ -123,6 +128,7 @@ namespace TournamentManagement.Tests.Tournaments
             var tournament = new Tournament("XXXX", DateTime.Today.AddDays(+10), "YYYY");
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
+
             tournamentRepository.GetByName(tournamentName).Returns(tournament);
 
             //-----------------------Act----------------------
@@ -143,6 +149,7 @@ namespace TournamentManagement.Tests.Tournaments
             };
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
+
             tournamentRepository.GetByLocation(tournamentLocation).Returns(tournament);
 
             //-----------------------Act----------------------
@@ -163,6 +170,7 @@ namespace TournamentManagement.Tests.Tournaments
             };
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
+
             tournamentRepository.GetByDate(startDate).Returns(tournament);
 
             //-----------------------Act----------------------
@@ -180,7 +188,8 @@ namespace TournamentManagement.Tests.Tournaments
             var updatedTournament = new Tournament("XXXX", DateTime.Today.AddDays(+10), "YYYY");
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(false);
+
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
 
             //-----------------------Act---------------------
             await tournamentService.Update(id, updatedTournament);
@@ -197,7 +206,8 @@ namespace TournamentManagement.Tests.Tournaments
             var updatedTournament = new Tournament("XXXX", DateTime.Today.AddDays(+10), "YYYY");
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(true);
+
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(true);
 
             //-----------------------Act---------------------
             await tournamentService.Update(id, updatedTournament);
@@ -213,7 +223,8 @@ namespace TournamentManagement.Tests.Tournaments
             var id = 01;
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(false);
+
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(false);
 
             //-----------------------Act---------------------
             await tournamentService.Delete(id);
@@ -229,7 +240,8 @@ namespace TournamentManagement.Tests.Tournaments
             var id = 01;
             var tournamentRepository = Substitute.For<ITournamentRepository>();
             var tournamentService = CreateTournamentService(tournamentRepository);
-            tournamentRepository.Exist(tournament => tournament.Id.Equals(id)).Returns(true);
+
+            tournamentRepository.Exist(Arg.Any<Expression<Func<Tournament, bool>>>()).Returns(true);
 
             //-----------------------Act---------------------
             await tournamentService.Delete(id);

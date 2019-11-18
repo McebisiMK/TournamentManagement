@@ -1,26 +1,75 @@
+<<<<<<< HEAD
 <form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
     <div class="form-group">
         <input name="Name" #Name="ngModel" [(ngModel)]="service.Name" class="form-control is-invalid"
             placeholder="tournament name" required>
+=======
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <div class="form-group">
+    <input
+      name="Name"
+      #Name="ngModel"
+      [(ngModel)]="service.tournament.Name"
+      class="form-control"
+      placeholder="tournament name"
+      required
+    />
+    <div
+      class="form-group validation-error"
+      *ngIf="Name.invalid && Name.touched"
+    >
+      This field is required
+>>>>>>> 698ab0c7bf04b9e41aec19c763b102b5d3803510
     </div>
-    <div class="form-row">
-        <div class="form-group col-6">
-            <input name="Location" #Location="ngModel" [(ngModel)]="service.Location" class="form-control"
-                placeholder="location">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-6">
+      <input
+        name="Location"
+        #Location="ngModel"
+        [(ngModel)]="service.tournament.Location"
+        class="form-control"
+        placeholder="location"
+        required
+      />
+      <div
+        class="form-group validation-error"
+        *ngIf="Location.invalid && Location.touched"
+      >
+        This field is required
+      </div>
+    </div>
+    <div class="form-group col-6">
+      <div class="input-group">
+        <input
+          type="date"
+          name="StartDate"
+          #StartDate="ngModel"
+          [(ngModel)]="service.tournament.StartDate"
+          class="form-control"
+          required
+        />
+        <div class="input-group-append">
+          <div class="input-group-text bg-gray">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </div>
         </div>
-        <div class="form-group col-6">
-            <div class="input-group">
-                <input type="date" name="StartDate" #StartDate="ngModel" [(ngModel)]="service.StartDate"
-                    class="form-control">
-            <div class="input-group-append">
-                <div class="input-group-text bg-gray">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                </div>
-            </div>
-            </div>
+        <div
+          class="form-group validation-error"
+          *ngIf="StartDate.invalid && StartDate.touched"
+        >
+          This field is required
         </div>
+      </div>
     </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success btn-lg btn-block">Register</button>
-    </div>
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-success btn-lg btn-block"
+    >
+      Register
+    </button>
+  </div>
 </form>
