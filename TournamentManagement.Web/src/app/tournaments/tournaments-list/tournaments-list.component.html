@@ -8,9 +8,9 @@
     </thead>
     <tbody class="table-info">
         <tr *ngFor="let tournament of service.tournaments">
-            <td>{{tournament.Name}}</td>
-            <td>{{tournament.Location}}</td>
-            <td>{{tournament.StartDate}}</td>
+            <td (click)="fillForm(tournament)">{{tournament.Name}}</td>
+            <td (click)="fillForm(tournament)">{{tournament.Location}}</td>
+            <td (click)="fillForm(tournament)">{{tournament.StartDate}}</td>
         </tr>
     </tbody>
 </table>

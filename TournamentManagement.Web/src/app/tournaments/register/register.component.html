@@ -1,4 +1,10 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input
+    type="hidden"
+    name="Id"
+    #Id="ngModel"
+    [(ngModel)]="service.tournament.Id"
+  />
   <div class="form-group">
     <input
       name="Name"
