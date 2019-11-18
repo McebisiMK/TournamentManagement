@@ -1,5 +1,4 @@
 using System;
-using Newtonsoft.Json;
 
 namespace TournamentManagement.Entities.Models
 {
@@ -18,25 +17,18 @@ namespace TournamentManagement.Entities.Models
             Amount = amount;
         }
 
-        [JsonProperty("tournamentName")]
         public string TournamentName;
 
-        [JsonProperty("teamName")]
         public string TeamName;
 
-        [JsonProperty("coach")]
         public string Coach;
 
-        [JsonProperty("captain")]
         public string Captain;
 
-        [JsonProperty("location")]
         public string Location;
 
-        [JsonProperty("startDate")]
         public DateTime StartDate;
 
-        [JsonProperty("amount")]
         public decimal Amount;
 
     }

@@ -19,6 +19,7 @@ using TournamentManagement.Repositories_Tournament;
 using TournamentManagement.Services_Registration;
 using TournamentManagement.Services_Team;
 using TournamentManagement.Services_Tournament;
+using Newtonsoft.Json.Serialization;
 
 namespace TournamentManagement.API
 {
@@ -34,6 +35,16 @@ namespace TournamentManagement.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+            services.AddControllers()
+                     .AddNewtonsoftJson(opt =>
+                     {
+                         var resolver = opt.SerializerSettings.ContractResolver;
+                         if (resolver != null)
+                         {
+                             var res = resolver as DefaultContractResolver;
+                             res.NamingStrategy = null;
+                         }
+                     });
 
             var connectionString = Configuration.GetConnectionString("TournamentManagementDatabase");
             services.AddDbContext<TournamentManagementDBContext>(options => options.UseSqlServer(connectionString));

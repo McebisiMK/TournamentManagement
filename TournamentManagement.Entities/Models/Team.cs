@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace TournamentManagement.Entities.Models
 {
@@ -17,16 +16,12 @@ namespace TournamentManagement.Entities.Models
             Captain = captain;
         }
 
-        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("coach")]
         public string Coach { get; set; }
 
-        [JsonProperty("captain")]
         public string Captain { get; set; }
 
         public virtual ICollection<Registration> Registration { get; set; }

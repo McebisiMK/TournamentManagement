@@ -8,9 +8,9 @@ import { HttpClient } from "@angular/common/http";
 export class TeamService {
   team: Team;
   teams: Team[];
-  private readonly rootUrl = "http://localhost:58888/api/team";
+  private readonly rootUrl = "http://localhost:61418/api/team";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   save(team: Team) {
     return this.http.post(this.rootUrl + "/save", team);

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace TournamentManagement.Entities.Models
@@ -18,16 +17,12 @@ namespace TournamentManagement.Entities.Models
             Location = location;
         }
 
-        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("startDate")]
         public DateTime StartDate { get; set; }
 
-        [JsonProperty("location")]
         public string Location { get; set; }
 
         public virtual ICollection<Registration> Registration { get; set; }
