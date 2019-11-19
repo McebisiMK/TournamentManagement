@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class TeamService {
   team: Team;
-  teams: Team[];
+  teams: Array<Team>;
   private readonly rootUrl = "http://localhost:58888/api/team";
 
   constructor(private http: HttpClient) { }
@@ -18,8 +18,8 @@ export class TeamService {
 
   allTeams() {
     this.http
-      .get<Team[]>(this.rootUrl + "/getall")
+      .get<Array<Team>>(this.rootUrl + "/getall")
       .toPromise()
-      .then(response => (this.teams = response as Team[]));
+      .then(response => (this.teams = response as Array<Team>));
   }
 }

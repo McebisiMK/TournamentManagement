@@ -9,7 +9,7 @@ import { ToastrService } from "ngx-toastr";
   styles: []
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private service: TeamService, private toastr: ToastrService) {}
+  constructor(private service: TeamService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
   saveTeam(form: NgForm) {
     this.service.save(form.value).subscribe(
       response => {
-        this.toastr.success("Record inserted successflly","Team");
+        this.toastr.success("Record inserted successflly", "Team");
         this.resetForm(form);
       },
       error => {

@@ -10,8 +10,6 @@ export class TournamentsComponent implements OnInit {
 
   constructor(private service: TournamentService) { }
 
-
   ngOnInit() {
   }
-
 }
