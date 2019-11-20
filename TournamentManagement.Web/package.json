@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
+    "@progress/kendo-angular-dateinputs": "^4.1.0",
     "@schematics/angular": "^7.0.7",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^4.3.1",
@@ -31,7 +32,12 @@
     "ngx-toastr": "^11.2.1",
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@progress/kendo-angular-intl": "^2.0.0",
+    "@progress/kendo-angular-l10n": "^2.0.0",
+    "@progress/kendo-angular-popup": "^3.0.0",
+    "@progress/kendo-angular-common": "^1.0.0",
+    "@progress/kendo-theme-default": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.19",

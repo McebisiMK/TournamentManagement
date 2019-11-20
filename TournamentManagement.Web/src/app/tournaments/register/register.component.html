@@ -17,7 +17,8 @@
     </div>
     <div class="form-group col-6">
       <div class="input-group">
-        <input type="date" name="StartDate" #StartDate="ngModel" [(ngModel)]="service.tournament.StartDate"
+        <kendo-datepicker [(value)]="service.tournament.StartDate" class="form-control" required></kendo-datepicker>
+        <!-- <input type="date" name="StartDate" #StartDate="ngModel" [(ngModel)]="service.tournament.StartDate"
           class="form-control" required />
         <div class="input-group-append">
           <div class="input-group-text bg-gray">
@@ -26,7 +27,7 @@
         </div>
         <div class="form-group validation-error" *ngIf="StartDate.invalid && StartDate.touched">
           This field is required
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -20,6 +20,8 @@ import { RegisterComponent } from './tournaments/register/register.component';
 import { TournamentsListComponent } from './tournaments/tournaments-list/tournaments-list.component';
 import { RegistrationComponent } from './teams/registration/registration.component';
 import { TeamsListComponent } from './teams/teams-list/teams-list.component';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'tournaments', pathMatch: 'full' },
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DateInputsModule
   ],
   providers: [TournamentService, TeamService, RegistrationService],
   bootstrap: [AppComponent]

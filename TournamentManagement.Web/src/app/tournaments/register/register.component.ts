@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private service: TournamentService,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.resetForm();
@@ -57,10 +57,10 @@ export class RegisterComponent implements OnInit {
       form.resetForm();
     }
     this.service.tournament = {
-      Id: null,
+      Id: 0,
       Name: "",
       Location: "",
-      StartDate: null
+      StartDate: new Date()
     };
   }
 }
