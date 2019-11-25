@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 export class TournamentService {
   tournament: Tournament;
   tournaments: Array<Tournament>;
-  private readonly rootUrl = "http://localhost:61418/api/tournament";
+  private readonly rootUrl = "http://localhost:52991/api/tournament";
 
   constructor(private http: HttpClient) { }
 

@@ -10,7 +10,10 @@
     <tr *ngFor="let tournament of service.tournaments">
       <td (click)="fillForm(tournament)">{{ tournament.name }}</td>
       <td (click)="fillForm(tournament)">{{ tournament.location }}</td>
-      <td (click)="fillForm(tournament)">{{ tournament.startDate }}</td>
+      <td (click)="fillForm(tournament)">
+        {{ tournament.startDate }}
+        <button class="btn btn-info"><i class="far fa-edit"></i></button>
+      </td>
     </tr>
   </tbody>
 </table>

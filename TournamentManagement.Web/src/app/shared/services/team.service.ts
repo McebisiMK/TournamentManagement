@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 export class TeamService {
   team: Team;
   teams: Array<Team>;
-  private readonly rootUrl = "http://localhost:61418/api/team";
+  private readonly rootUrl = "http://localhost:52991/api/team";
 
   constructor(private http: HttpClient) { }
 
