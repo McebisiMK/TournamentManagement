@@ -9,7 +9,7 @@ import { ToastrService } from "ngx-toastr";
   styles: []
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private service: TeamService, private toastr: ToastrService) { }
+  constructor(private service: TeamService, private toastr: ToastrService) {}
 
   ngOnInit() {
     this.resetForm();
@@ -36,10 +36,10 @@ export class RegistrationComponent implements OnInit {
       form.resetForm();
     }
     this.service.team = {
-      Id: null,
-      Name: "",
-      Coach: "",
-      Captain: ""
+      id: null,
+      name: "",
+      coach: "",
+      captain: ""
     };
   }
 }

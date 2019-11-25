@@ -1,38 +1,61 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="service.tournament.Id" />
+  <input
+    type="hidden"
+    name="id"
+    #id="ngModel"
+    [(ngModel)]="service.tournament.id"
+  />
   <div class="form-group">
-    <input name="Name" #Name="ngModel" [(ngModel)]="service.tournament.Name" class="form-control"
-      placeholder="tournament name" required />
-    <div class="form-group validation-error" *ngIf="Name.invalid && Name.touched">
+    <input
+      name="name"
+      #name="ngModel"
+      [(ngModel)]="service.tournament.name"
+      class="form-control"
+      placeholder="tournament name"
+      required
+    />
+    <div
+      class="form-group validation-error"
+      *ngIf="name.invalid && name.touched"
+    >
       This field is required
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-6">
-      <input name="Location" #Location="ngModel" [(ngModel)]="service.tournament.Location" class="form-control"
-        placeholder="location" required />
-      <div class="form-group validation-error" *ngIf="Location.invalid && Location.touched">
+      <input
+        name="location"
+        #location="ngModel"
+        [(ngModel)]="service.tournament.location"
+        class="form-control"
+        placeholder="location"
+        required
+      />
+      <div
+        class="form-group validation-error"
+        *ngIf="location.invalid && location.touched"
+      >
         This field is required
       </div>
     </div>
     <div class="form-group col-6">
       <div class="input-group">
-        <kendo-datepicker [(value)]="service.tournament.StartDate" class="form-control" required></kendo-datepicker>
-        <!-- <input type="date" name="StartDate" #StartDate="ngModel" [(ngModel)]="service.tournament.StartDate"
-          class="form-control" required />
-        <div class="input-group-append">
-          <div class="input-group-text bg-gray">
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="form-group validation-error" *ngIf="StartDate.invalid && StartDate.touched">
-          This field is required
-        </div> -->
+        <kendo-datepicker
+          name="startDate"
+          #startDate="ngModel"
+          [(ngModel)]="service.tournament.startDate"
+          class="form-control"
+          required
+        ></kendo-datepicker>
       </div>
     </div>
   </div>
   <div class="form-group">
-    <button type="submit" [disabled]="form.invalid" class="btn btn-success btn-lg btn-block">
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-success btn-lg btn-block"
+    >
       Register
     </button>
   </div>

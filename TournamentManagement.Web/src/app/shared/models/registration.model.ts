@@ -1,12 +1,8 @@
 export class Registration {
-    Id: Number;
-    TournamentId: Number;
-    TeamId: Number;
-    Amount: Number;
-
-    constructor(tournamentId: Number, teamId: Number, amount: Number) {
-        this.TournamentId = tournamentId;
-        this.TeamId = teamId;
-        this.Amount = amount;
-    }
+  constructor(
+    public id: Number,
+    public tournamentId: Number,
+    public teamId: Number,
+    public amount: Number
+  ) {}
 }

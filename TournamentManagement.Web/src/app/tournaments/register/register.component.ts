@@ -12,14 +12,14 @@ export class RegisterComponent implements OnInit {
   constructor(
     private service: TournamentService,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.resetForm();
   }
 
   onSubmit(form: NgForm) {
-    if (form.value.Id == null) {
+    if (form.value.id == 0) {
       this.saveRecord(form);
     } else {
       this.updateRecord(form);
@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.update(form.value.Id, form.value).subscribe(
+    this.service.update(form.value.id, form.value).subscribe(
       response => {
         this.toastr.success("Record updated successfully", "Tournament");
         this.resetForm(form);
@@ -57,10 +57,10 @@ export class RegisterComponent implements OnInit {
       form.resetForm();
     }
     this.service.tournament = {
-      Id: 0,
-      Name: "",
-      Location: "",
-      StartDate: new Date()
+      id: 0,
+      name: "",
+      location: "",
+      startDate: new Date()
     };
   }
 }

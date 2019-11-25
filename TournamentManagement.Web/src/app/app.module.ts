@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule  } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DatepickerModule, BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ToastrModule } from "ngx-toastr";
@@ -42,11 +41,9 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    BrowserAnimationsModule ,
+    BrowserAnimationsModule,
     TabsModule.forRoot(),
     ToastrModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    DatepickerModule.forRoot(),
     AngularFontAwesomeModule,
     NgbModule,
     HttpClientModule,
