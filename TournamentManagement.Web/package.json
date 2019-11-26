@@ -36,7 +36,7 @@
     "ngx-bootstrap": "^5.2.0",
     "ngx-toastr": "^11.2.1",
     "npm": "^6.13.1",
-    "rxjs": "^6.5.3",
+    "rxjs-tslint-rules": "^4.26.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
