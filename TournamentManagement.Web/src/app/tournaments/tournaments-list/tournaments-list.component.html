@@ -4,7 +4,7 @@
       <th scope="col">Name</th>
       <th scope="col">Location</th>
       <th scope="col">Start Date</th>
-      <th></th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody class="table-info">
@@ -13,7 +13,7 @@
       <td>{{ tournament.location }}</td>
       <td>{{ tournament.startDate | date }}</td>
       <td>
-        <button class="btn btn-info btn-sm badge-pill col-xs-2">
+        <button class="btn btn-info btn-sm badge-pill col-xs-2" (click)="fillForm(tournament)">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </button>
         <button class="btn btn-danger btn-sm badge-pill col-xs-2">

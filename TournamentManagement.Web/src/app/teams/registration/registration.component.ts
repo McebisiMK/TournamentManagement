@@ -35,8 +35,9 @@ export class RegistrationComponent implements OnInit {
     if (form != null) {
       form.resetForm();
     }
+
     this.service.team = {
-      id: null,
+      id: 0,
       name: "",
       coach: "",
       captain: ""
