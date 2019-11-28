@@ -20,11 +20,13 @@ export class TeamsListComponent implements OnInit {
   }
 
   delete(id: Number) {
-    this.service.delete(id).subscribe(
-      response => {
-        this.toastr.success("dfdfdf");
-      },
-      error => {}
-    );
+    if (confirm("Confirm deletion of team")) {
+      this.service.delete(id).subscribe(
+        response => {
+          this.toastr.warning("Team deleted successfully");
+        },
+        error => {}
+      );
+    }
   }
 }
