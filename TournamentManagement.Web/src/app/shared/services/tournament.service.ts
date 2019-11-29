@@ -10,7 +10,7 @@ export class TournamentService {
   tournaments: Array<Tournament>;
   private readonly rootUrl = "http://localhost:52991/api/tournament";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   allTournaments() {
     this.http
@@ -25,5 +25,9 @@ export class TournamentService {
 
   update(id: Number, tournament: Tournament) {
     return this.http.put(this.rootUrl + "/update/" + id, tournament);
+  }
+
+  delete(id: Number) {
+    return this.http.delete(this.rootUrl + "/delete/" + id);
   }
 }

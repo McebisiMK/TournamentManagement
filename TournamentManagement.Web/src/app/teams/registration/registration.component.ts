@@ -16,13 +16,29 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.saveTeam(form);
+    if (form.value.id == 0) {
+      this.saveRecord(form);
+    } else {
+      this.updateRecord(form);
+    }
   }
 
-  saveTeam(form: NgForm) {
+  saveRecord(form: NgForm) {
     this.service.save(form.value).subscribe(
       response => {
         this.toastr.success("Record inserted successflly", "Team");
+        this.resetForm(form);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  updateRecord(form: NgForm) {
+    this.service.update(form.value.id, form.value).subscribe(
+      response => {
+        this.toastr.success("Team updated successfully", "Team");
         this.resetForm(form);
       },
       error => {
@@ -35,8 +51,9 @@ export class RegistrationComponent implements OnInit {
     if (form != null) {
       form.resetForm();
     }
+
     this.service.team = {
-      id: null,
+      id: 0,
       name: "",
       coach: "",
       captain: ""
