@@ -1,6 +1,12 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
   <div class="form-group">
     <input
+      type="hidden"
+      name="id"
+      #id="ngModel"
+      [(ngModel)]="service.team.id"
+    />
+    <input
       name="name"
       #name="ngModel"
       [(ngModel)]="service.team.name"

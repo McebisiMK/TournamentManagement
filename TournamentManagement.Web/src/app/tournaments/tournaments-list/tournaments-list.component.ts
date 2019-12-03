@@ -27,6 +27,7 @@ export class TournamentsListComponent implements OnInit {
       this.service.delete(id).subscribe(
         response => {
           this.toastr.warning("Tournament deleted successfully", "Tournament");
+          this.service.allTournaments();
         },
         error => {
           console.log(error);

@@ -28,6 +28,7 @@ export class RegistrationComponent implements OnInit {
       response => {
         this.toastr.success("Record inserted successflly", "Team");
         this.resetForm(form);
+        this.service.allTeams();
       },
       error => {
         console.log(error);
@@ -40,6 +41,7 @@ export class RegistrationComponent implements OnInit {
       response => {
         this.toastr.success("Team updated successfully", "Team");
         this.resetForm(form);
+        this.service.allTeams();
       },
       error => {
         console.log(error);

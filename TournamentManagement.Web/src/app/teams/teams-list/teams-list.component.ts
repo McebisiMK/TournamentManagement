@@ -24,6 +24,7 @@ export class TeamsListComponent implements OnInit {
       this.service.delete(id).subscribe(
         response => {
           this.toastr.warning("Team deleted successfully", "Team");
+          this.service.allTeams();
         },
         error => {
           console.log(error);
