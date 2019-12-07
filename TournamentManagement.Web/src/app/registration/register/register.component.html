@@ -1,3 +1,32 @@
-<p>
-  register works!
-</p>
+<form #form="ngForm" autocomplete="off">
+  <!-- <input
+    type="hidden"
+    name="id"
+    #id="ngModel"
+    [(ngModel)]="service.registration.id"
+  /> -->
+  <div class="form-group">
+    <select class="form-control selectpicker" data-live-search="true">
+      <option value="" selected> --- Select A Tournament --- </option>
+      <option *ngFor="let tourna of tourn">{{ tourna }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <select class="form-control selectpicker" data-live-search="true">
+      <option value="" selected> --- Select A Team --- </option>
+      <option *ngFor="let tourna of tourn">{{ tourna }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input name="name" class="form-control" placeholder="Team name" required />
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="btn btn-success btn-lg btn-block"
+    >
+      Register
+    </button>
+  </div>
+</form>
