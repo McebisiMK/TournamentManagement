@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { TeamService } from "src/app/shared/services/team.service";
-import { Team } from "src/app/shared/models/team.model";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { TeamService } from 'src/app/shared/services/team.service';
+import { ToastrService } from 'ngx-toastr';
+import { Team } from 'src/app/shared/models/team.model';
 
 @Component({
-  selector: "app-teams-list",
-  templateUrl: "./teams-list.component.html",
+  selector: 'app-team-list',
+  templateUrl: './team-list.component.html',
   styles: []
 })
-export class TeamsListComponent implements OnInit {
+export class TeamListComponent implements OnInit {
   constructor(private service: TeamService, private toastr: ToastrService) {}
 
   ngOnInit() {

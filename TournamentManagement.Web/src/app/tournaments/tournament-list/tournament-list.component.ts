@@ -1,14 +1,14 @@
-import { ToastrService } from "ngx-toastr";
-import { Component, OnInit } from "@angular/core";
-import { TournamentService } from "src/app/shared/services/tournament.service";
-import { Tournament } from "src/app/shared/models/tournament.model";
+import { Component, OnInit } from '@angular/core';
+import { TournamentService } from 'src/app/shared/services/tournament.service';
+import { ToastrService } from 'ngx-toastr';
+import { Tournament } from 'src/app/shared/models/tournament.model';
 
 @Component({
-  selector: "app-tournaments-list",
-  templateUrl: "./tournaments-list.component.html",
+  selector: 'app-tournament-list',
+  templateUrl: './tournament-list.component.html',
   styles: []
 })
-export class TournamentsListComponent implements OnInit {
+export class TournamentListComponent implements OnInit {
   constructor(
     private service: TournamentService,
     private toastr: ToastrService
