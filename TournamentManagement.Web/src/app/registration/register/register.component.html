@@ -17,8 +17,17 @@
       <option *ngFor="let tourna of tourn">{{ tourna }}</option>
     </select>
   </div>
-  <div class="form-group">
-    <input name="name" class="form-control" placeholder="Team name" required />
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <input
+      name="amount"
+      #amount="ngModel"
+      [(ngModel)]="service.registration.amount"
+      class="form-control"
+      placeholder="Amount"
+    />
   </div>
   <div class="form-group">
     <button
