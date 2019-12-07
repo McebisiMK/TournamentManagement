@@ -5,7 +5,7 @@ import { Registration } from '../models/registration.model';
   providedIn: 'root'
 })
 export class RegistrationService {
-  registrationData: Registration;
+  registration: Registration;
 
   constructor() { }
 }
