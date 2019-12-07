@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrationService } from 'src/app/shared/services/registration.service';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: RegistrationService) { }
+
+  tourn = ['Mgudu','Zabase','Mnyolo','Sandile','Nkondlo']
 
   ngOnInit() {
   }
