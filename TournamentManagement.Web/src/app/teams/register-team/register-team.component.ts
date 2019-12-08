@@ -1,14 +1,14 @@
-import { NgForm } from "@angular/forms";
-import { Component, OnInit } from "@angular/core";
-import { TeamService } from "src/app/shared/services/team.service";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { TeamService } from 'src/app/shared/services/team.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: "app-registration",
-  templateUrl: "./registration.component.html",
+  selector: 'app-register-team',
+  templateUrl: './register-team.component.html',
   styles: []
 })
-export class RegistrationComponent implements OnInit {
+export class RegisterTeamComponent implements OnInit {
   constructor(private service: TeamService, private toastr: ToastrService) {}
 
   ngOnInit() {
@@ -61,4 +61,5 @@ export class RegistrationComponent implements OnInit {
       captain: ""
     };
   }
+
 }
