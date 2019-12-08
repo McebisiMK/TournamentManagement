@@ -1,30 +1,52 @@
-<form #form="ngForm" autocomplete="off">
-  <!-- <input
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input
     type="hidden"
     name="id"
     #id="ngModel"
-    [(ngModel)]="service.registration.id"
-  /> -->
-  <div class="form-group">
-    <select class="form-control selectpicker" data-live-search="true">
-      <option value="" selected> --- Select A Tournament --- </option>
-      <option *ngFor="let tourna of tourn">{{ tourna }}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <select class="form-control selectpicker" data-live-search="true">
-      <option value="" selected> --- Select A Team --- </option>
-      <option *ngFor="let tourna of tourn">{{ tourna }}</option>
+    [(ngModel)]="registrationService.registration.id"
+  />
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Tournament</span>
+    </div>
+    <select
+      class="form-control selectpicker"
+      name="tournamentId"
+      #tournamentId="ngModel"
+      [(ngModel)]="registrationService.registration.tournamentId"
+      data-live-search="true"
+    >
+      <option
+        *ngFor="let tournament of tournamentService.tournaments"
+        value="{{ tournament.id }}"
+        >{{ tournament.name }}</option
+      >
     </select>
   </div>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">@</span>
+      <span class="input-group-text">Team</span>
+    </div>
+    <select
+      class="form-control selectpicker"
+      name="teamId"
+      #teamId="ngModel"
+      [(ngModel)]="registrationService.registration.teamId"
+      data-live-search="true"
+    >
+      <option *ngFor="let team of teamService.teams" value="{{ team.id }}">{{
+        team.name
+      }}</option>
+    </select>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text"><i class="fa fa-edit"></i></span>
     </div>
     <input
       name="amount"
       #amount="ngModel"
-      [(ngModel)]="service.registration.amount"
+      [(ngModel)]="registrationService.registration.amount"
       class="form-control"
       placeholder="Amount"
     />
