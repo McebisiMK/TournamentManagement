@@ -12,4 +12,5 @@ export class TournamentsComponent implements OnInit {
 
   ngOnInit() {
   }
+
 }

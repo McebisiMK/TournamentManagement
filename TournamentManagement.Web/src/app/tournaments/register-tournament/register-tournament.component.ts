@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { TournamentService } from "src/app/shared/services/tournament.service";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { TournamentService } from 'src/app/shared/services/tournament.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
+  selector: 'app-register-tournament',
+  templateUrl: './register-tournament.component.html',
   styles: []
 })
-export class RegisterComponent implements OnInit {
+export class RegisterTournamentComponent implements OnInit {
   constructor(
     private service: TournamentService,
     private toastr: ToastrService
