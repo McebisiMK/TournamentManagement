@@ -10,6 +10,12 @@ END;
 
 GO
 
+/*
+------------------------------------------------------------------------------------------------
+CREATE TEAM TABLE
+------------------------------------------------------------------------------------------------
+*/
+
 CREATE TABLE [Team]
 (
     [Id] INT NOT NULL IDENTITY,
@@ -21,6 +27,12 @@ CREATE TABLE [Team]
 
 GO
 
+/*
+------------------------------------------------------------------------------------------------
+CREATE TOURNAMENT TABLE
+------------------------------------------------------------------------------------------------
+*/
+
 CREATE TABLE [Tournament]
 (
     [Id] INT NOT NULL IDENTITY,
@@ -31,6 +43,12 @@ CREATE TABLE [Tournament]
 );
 
 GO
+
+/*
+------------------------------------------------------------------------------------------------
+CREATE REGISTRATION TABLE
+------------------------------------------------------------------------------------------------
+*/
 
 CREATE TABLE [Registration]
 (
@@ -59,3 +77,26 @@ VALUES
     (N'20191114050142_ProjectMigration', N'3.0.0');
 
 GO
+
+/*
+------------------------------------------------------------------------------------------------
+CREATE STORED PROCEDURE FOR REGISTERED TEAMS
+------------------------------------------------------------------------------------------------
+*/
+
+CREATE PROCEDURE [dbo].[RegisteredTeams]
+    @tournamentId INT
+AS
+
+SELECT 
+    t.Name [Tournament Name],
+    tm.Name [Team Name],
+    t.[Location],
+    t.StartDate [Start Date],
+    r.Amount [Paid Amount]
+FROM 
+    Registration r
+    JOIN Tournament t ON t.Id = r.TournamentId
+    JOIN Team tm ON tm.Id = r.TeamId
+WHERE
+	r.TournamentId = @tournamentId
