@@ -7,7 +7,8 @@ namespace TournamentManagement.IServices_Registration
     public interface IRegistrationService
     {
         Task<IEnumerable<Registration>> GetAll();
-        public Task<Registration> GetById(int id);
+        Task<Registration> GetById(int id);
+        Task<IEnumerable<RegisteredTeam>> GetRegisteredTeams(int tournamentId);
         Task Register(Registration registration);
         Task Update(int id, Registration registration);
         Task Delete(int id);

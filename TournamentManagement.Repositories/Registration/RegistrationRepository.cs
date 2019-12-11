@@ -12,10 +12,12 @@ namespace TournamentManagement.Repositories_Registration
     public class RegistrationRepository : IRegistrationRepository
     {
         private readonly IGenericRepository<Registration> _genericRepository;
+        private readonly TournamentManagementDBContext dBContext;
 
         public RegistrationRepository(IGenericRepository<Registration> genericRepository)
         {
             _genericRepository = genericRepository;
+            dBContext = new TournamentManagementDBContext();
         }
 
         public async Task<IEnumerable<Registration>> GetAll()
@@ -28,6 +30,14 @@ namespace TournamentManagement.Repositories_Registration
             return await _genericRepository
                             .GetBy(registration => registration.Id.Equals(id))
                             .SingleOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<RegisteredTeam>> GetRegisteredTeams(int tournamentId)
+        {
+            return await dBContext
+                            .RegisteredTeam
+                            .FromSqlInterpolated($"Exec RegisteredTeams {tournamentId}")
+                            .ToListAsync();
         }
 
         public Task Delete(Registration registration)

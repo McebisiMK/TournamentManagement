@@ -10,6 +10,7 @@ namespace TournamentManagement.IRepository_Registration
     {
         Task<IEnumerable<Registration>> GetAll();
         Task<Registration> GetById(int id);
+        Task<IEnumerable<RegisteredTeam>> GetRegisteredTeams(int tournamentId);
         Task Register(Registration registration);
         Task Update(Registration oldRegistration, Registration newRegistration);
         Task Delete(Registration registration);

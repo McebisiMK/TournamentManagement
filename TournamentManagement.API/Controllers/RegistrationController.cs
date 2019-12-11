@@ -28,6 +28,12 @@ namespace TournamentManagement.API.Controllers
             return await _registrationService.GetById(id);
         }
 
+        [HttpGet("getby/tournamentId/{tournamentId}")]
+        public async Task<IEnumerable<RegisteredTeam>> GetByTournament(int tournamentId)
+        {
+            return await _registrationService.GetRegisteredTeams(tournamentId);
+        }
+
         [HttpPost("save")]
         public async Task Save([FromBody] Registration registration)
         {

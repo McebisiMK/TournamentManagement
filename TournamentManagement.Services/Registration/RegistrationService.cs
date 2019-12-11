@@ -31,6 +31,11 @@ namespace TournamentManagement.Services_Registration
             return await _registrationRepository.GetById(id);
         }
 
+        public async Task<IEnumerable<RegisteredTeam>> GetRegisteredTeams(int tournamentId)
+        {
+            return await _registrationRepository.GetRegisteredTeams(tournamentId);
+        }
+
         public async Task Register(Registration registration)
         {
             if (IsValid(registration))

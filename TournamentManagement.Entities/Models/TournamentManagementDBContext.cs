@@ -16,6 +16,7 @@ namespace TournamentManagement.Entities.Models
         public virtual DbSet<Registration> Registration { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Tournament> Tournament { get; set; }
+        public virtual DbSet<RegisteredTeam> RegisteredTeam { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -65,6 +66,11 @@ namespace TournamentManagement.Entities.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.StartDate).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<RegisteredTeam>(entity =>
+            {
+                entity.HasNoKey();
             });
 
             OnModelCreatingPartial(modelBuilder);
