@@ -36,7 +36,7 @@ namespace TournamentManagement.Repositories_Registration
 
         public async Task<IEnumerable<RegisteredTeam>> GetRegisteredTeams(int tournamentId)
         {
-            return await DbSet.FromSqlInterpolated($"EXEC dbo.RegisteredTeams {tournamentId}").ToListAsync();
+            return await DbSet.FromSqlInterpolated($"EXECUTE dbo.RegisteredTeam {tournamentId}").ToListAsync();
         }
 
         public Task Delete(Registration registration)

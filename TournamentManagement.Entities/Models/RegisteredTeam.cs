@@ -2,7 +2,7 @@ using System;
 
 namespace TournamentManagement.Entities.Models
 {
-    public class RegisteredTeam
+    public partial class RegisteredTeam
     {
         public RegisteredTeam() { }
 
