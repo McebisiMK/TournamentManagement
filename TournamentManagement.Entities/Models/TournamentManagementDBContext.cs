@@ -68,10 +68,7 @@ namespace TournamentManagement.Entities.Models
                 entity.Property(e => e.StartDate).HasColumnType("date");
             });
 
-            modelBuilder.Entity<RegisteredTeam>(entity =>
-            {
-                entity.HasNoKey();
-            });
+            modelBuilder.Entity<RegisteredTeam>().HasNoKey();
 
             OnModelCreatingPartial(modelBuilder);
         }
