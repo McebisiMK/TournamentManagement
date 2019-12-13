@@ -10,7 +10,7 @@ using TournamentManagement.Entities.Models;
 namespace TournamentManagement.Entities.Migrations
 {
     [DbContext(typeof(TournamentManagementDBContext))]
-    [Migration("20191114050142_ProjectMigration")]
+    [Migration("20191213054641_ProjectMigration")]
     partial class ProjectMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,11 @@ namespace TournamentManagement.Entities.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("TournamentManagement.Entities.Models.RegisteredTeam", b =>
+                {
+                    b.ToTable("RegisteredTeam");
+                });
 
             modelBuilder.Entity("TournamentManagement.Entities.Models.Registration", b =>
                 {

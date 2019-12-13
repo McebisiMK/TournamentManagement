@@ -8,6 +8,15 @@ namespace TournamentManagement.Entities.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "RegisteredTeam",
+                columns: table => new
+                {
+                },
+                constraints: table =>
+                {
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Team",
                 columns: table => new
                 {
@@ -77,6 +86,9 @@ namespace TournamentManagement.Entities.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "RegisteredTeam");
+
             migrationBuilder.DropTable(
                 name: "Registration");
 

@@ -19,6 +19,11 @@ namespace TournamentManagement.Entities.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("TournamentManagement.Entities.Models.RegisteredTeam", b =>
+                {
+                    b.ToTable("RegisteredTeam");
+                });
+
             modelBuilder.Entity("TournamentManagement.Entities.Models.Registration", b =>
                 {
                     b.Property<int>("Id")

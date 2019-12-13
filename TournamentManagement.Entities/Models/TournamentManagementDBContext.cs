@@ -22,7 +22,8 @@ namespace TournamentManagement.Entities.Models
         {
             modelBuilder.Entity<Registration>(entity =>
             {
-                entity.Property(e => e.Amount).HasColumnType("decimal(8, 2)");
+                entity.Property(e => e.Amount)
+                    .HasColumnType("decimal(8, 2)");
 
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.Registration)
@@ -65,7 +66,8 @@ namespace TournamentManagement.Entities.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.StartDate).HasColumnType("date");
+                entity.Property(e => e.StartDate)
+                    .HasColumnType("date");
             });
 
             modelBuilder.Entity<RegisteredTeam>().HasNoKey();

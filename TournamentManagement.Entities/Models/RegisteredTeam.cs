@@ -15,15 +15,15 @@ namespace TournamentManagement.Entities.Models
             Amount = amount;
         }
 
-        public string TournamentName;
+        public string TournamentName { get; set; }
 
-        public string TeamName;
+        public string TeamName { get; set; }
 
-        public string Location;
+        public string Location { get; set; }
 
-        public DateTime StartDate;
+        public DateTime StartDate { get; set; }
 
-        public decimal Amount;
+        public decimal Amount { get; set; }
 
     }
 }

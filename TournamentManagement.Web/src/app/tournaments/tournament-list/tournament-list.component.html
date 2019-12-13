@@ -8,10 +8,10 @@
       </tr>
     </thead>
     <tbody class="table-info">
-      <tr *ngFor="let tournament of service.tournaments" routerLink="/registration" >
-        <td>{{ tournament.name }}</td>
-        <td>{{ tournament.location }}</td>
-        <td>{{ tournament.startDate | date }}</td>
+      <tr *ngFor="let tournament of service.tournaments" >
+        <td routerLink="/registration">{{ tournament.name }}</td>
+        <td routerLink="/registration">{{ tournament.location }}</td>
+        <td routerLink="/registration">{{ tournament.startDate | date }}</td>
         <td>
           <button
             class="btn btn-info btn-sm badge-pill col-xs-2"

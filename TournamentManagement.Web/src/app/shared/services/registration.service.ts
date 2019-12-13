@@ -7,7 +7,7 @@ import { Registration } from "../models/registration.model";
 })
 export class RegistrationService {
   registration: Registration;
-  private readonly rootUrl = "http://localhost:52991/api/registration";
+  private readonly rootUrl = "http://localhost:61418/api/registration";
 
   constructor(private http: HttpClient) {}
 
