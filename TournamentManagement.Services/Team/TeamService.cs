@@ -80,7 +80,10 @@ namespace TournamentManagement.Services_Team
 
         private bool IsValid(Team team)
         {
-            return (!Invalid(team.Name) && !Invalid(team.Captain) && !Invalid(team.Coach));
+            return (!Invalid(team.Name) && 
+                    !Invalid(team.Captain) && 
+                    !Invalid(team.Coach)
+                    );
         }
 
         private bool Invalid(string input)

@@ -43,7 +43,7 @@ namespace TournamentManagement.Services_Registration
                 var existingTournament = _tournamentRepository.Exist(tournament => tournament.Id.Equals(registration.TournamentId));
                 var existingTeam = _teamRepository.Exist(team => team.Id.Equals(registration.TeamId));
                 var existingRegistration = _registrationRepository.Exist(reg => reg.TournamentId.Equals(registration.TournamentId) &&
-                                                                                         reg.TeamId.Equals(registration.TeamId));
+                                                                                reg.TeamId.Equals(registration.TeamId));
 
                 if (existingTournament && existingTeam && !existingRegistration)
                 {
@@ -79,7 +79,10 @@ namespace TournamentManagement.Services_Registration
 
         private bool IsValid(Registration registration)
         {
-            return (Valid(registration.TournamentId) && Valid(registration.TeamId) && Valid(registration.Amount));
+            return (Valid(registration.TournamentId) && 
+                    Valid(registration.TeamId) && 
+                    Valid(registration.Amount)
+                    );
         }
 
         private bool Valid(decimal input)
