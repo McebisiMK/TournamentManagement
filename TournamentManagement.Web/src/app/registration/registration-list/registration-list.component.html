@@ -1,3 +1,49 @@
-<p>
-  registration-list works!
-</p>
+<select
+  class="form-control selectpicker"
+  name="tournamentId"
+  [(ngModel)]="tournamentId"
+  (change)="getRegisteredTeams()"
+  data-live-search="true"
+>
+  <option [ngValue]="0" selected>--- Select tournament ---</option>
+  <option
+    *ngFor="let tournament of tournamentService.tournaments"
+    [ngValue]="tournament.id"
+    >{{ tournament.name }}</option
+  >
+</select>
+<table class="table table-striped table-hover">
+  <thead class="bg-info">
+    <tr>
+      <th scope="col">Tournament</th>
+      <th scope="col">Team</th>
+      <th scope="col">Location</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="table-info">
+    <tr *ngFor="let registeredTeam of service.registered">
+      <td>{{ registeredTeam.tournamentName }}</td>
+      <td>{{ registeredTeam.teamName }}</td>
+      <td>{{ registeredTeam.location }}</td>
+      <td>{{ registeredTeam.startDate | date }}</td>
+      <td>{{ registeredTeam.amount }}</td>
+      <td>
+        <button
+          class="btn btn-info btn-sm badge-pill col-xs-2"
+          (click)="fillForm(team)"
+        >
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </button>
+        <button
+          class="btn btn-danger btn-sm badge-pill col-xs-2"
+          (click)="delete(team.id)"
+        >
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
