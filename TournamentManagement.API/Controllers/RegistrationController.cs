@@ -28,7 +28,7 @@ namespace TournamentManagement.API.Controllers
             return await _registrationService.GetById(id);
         }
 
-        [HttpGet("getby/tournamentId/{tournamentId}")]
+        [HttpGet("getby/tournament/{tournamentId}")]
         public async Task<IEnumerable<RegisteredTeam>> GetByTournament(int tournamentId)
         {
             return await _registrationService.GetRegisteredTeams(tournamentId);
