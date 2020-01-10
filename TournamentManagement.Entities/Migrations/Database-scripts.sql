@@ -12,7 +12,7 @@ GO
 
 /*
 ------------------------------------------------------------------------------------------------
-CREATE TEAM TABLE
+    CREATE TEAM TABLE
 ------------------------------------------------------------------------------------------------
 */
 
@@ -29,7 +29,7 @@ GO
 
 /*
 ------------------------------------------------------------------------------------------------
-CREATE TOURNAMENT TABLE
+    CREATE TOURNAMENT TABLE
 ------------------------------------------------------------------------------------------------
 */
 
@@ -46,7 +46,7 @@ GO
 
 /*
 ------------------------------------------------------------------------------------------------
-CREATE REGISTRATION TABLE
+    CREATE REGISTRATION TABLE
 ------------------------------------------------------------------------------------------------
 */
 
@@ -80,7 +80,7 @@ GO
 
 /*
 ------------------------------------------------------------------------------------------------
-CREATE STORED PROCEDURE FOR REGISTERED TEAMS
+    CREATE STORED PROCEDURE FOR REGISTERED TEAMS
 ------------------------------------------------------------------------------------------------
 */
 
@@ -88,13 +88,13 @@ CREATE PROCEDURE [dbo].[RegisteredTeams]
     @tournamentId INT
 AS
 
-SELECT 
+SELECT
     t.Name [Tournament Name],
     tm.Name [Team Name],
     t.[Location],
     t.StartDate [Start Date],
     r.Amount [Paid Amount]
-FROM 
+FROM
     Registration r
     JOIN Tournament t ON t.Id = r.TournamentId
     JOIN Team tm ON tm.Id = r.TeamId
