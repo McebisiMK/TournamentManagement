@@ -1,8 +1,8 @@
 # TournamentManagement
 
-## Capture a tournament for a future date
+### Capture a tournament for a future date
 
-### Tournament can have:
+**Tournament can have:**
 
 - Registered teams.
   - Registered teams pay a registration/participation fee.
