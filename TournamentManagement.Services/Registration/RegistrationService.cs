@@ -21,16 +21,6 @@ namespace TournamentManagement.Services_Registration
             _teamRepository = teamRepository;
         }
 
-        public async Task<IEnumerable<Registration>> GetAll()
-        {
-            return await _registrationRepository.GetAll();
-        }
-
-        public async Task<Registration> GetById(int id)
-        {
-            return await _registrationRepository.GetById(id);
-        }
-
         public async Task<IEnumerable<RegisteredTeam>> GetRegisteredTeams(int tournamentId)
         {
             return await _registrationRepository.GetRegisteredTeams(tournamentId);
@@ -79,10 +69,12 @@ namespace TournamentManagement.Services_Registration
 
         private bool IsValid(Registration registration)
         {
-            return (Valid(registration.TournamentId) && 
-                    Valid(registration.TeamId) && 
+            return
+                (
+                    Valid(registration.TournamentId) &&
+                    Valid(registration.TeamId) &&
                     Valid(registration.Amount)
-                    );
+                );
         }
 
         private bool Valid(decimal input)
