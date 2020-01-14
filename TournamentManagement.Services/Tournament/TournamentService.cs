@@ -81,10 +81,10 @@ namespace TournamentManagement.Services_Tournament
 
         private bool IsValid(Tournament tournament)
         {
-            return 
+            return
                 (
-                    !Invalid(tournament.Name) && 
-                    !Invalid(tournament.Location) && 
+                    !Invalid(tournament.Name) &&
+                    !Invalid(tournament.Location) &&
                     tournament.StartDate >= DateTime.Today
                 );
         }
