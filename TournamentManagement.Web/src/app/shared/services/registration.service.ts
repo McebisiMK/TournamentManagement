@@ -9,7 +9,7 @@ import { RegisteredTeam } from "../models/registered-team.model";
 export class RegistrationService {
   registration: Registration;
   registered: Array<RegisteredTeam>;
-  private readonly rootUrl = "http://localhost:61418/api/registration";
+  private readonly rootUrl = "http://localhost:53594/api/registration";
 
   constructor(private http: HttpClient) {}
 
