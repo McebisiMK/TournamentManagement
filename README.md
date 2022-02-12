@@ -1,3 +1,5 @@
+[![.NET Core](https://github.com/McebisiMK/TournamentManagement/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/McebisiMK/TournamentManagement/actions/workflows/dotnetcore.yml)
+
 # TournamentManagement
 
 ### Capture a tournament for a future date
