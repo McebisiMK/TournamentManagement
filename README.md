@@ -1,4 +1,4 @@
-[![.NET Core](https://github.com/McebisiMK/TournamentManagement/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/McebisiMK/TournamentManagement/actions/workflows/dotnetcore.yml)
+[![Tournament Management](https://github.com/McebisiMK/TournamentManagement/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/McebisiMK/TournamentManagement/actions/workflows/dotnetcore.yml)
 
 # TournamentManagement
 
